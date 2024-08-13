@@ -1,10 +1,10 @@
 package salvatore.assennato.card.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
+import salvatore.assennato.card.Enum.Taglia;
+import salvatore.assennato.card.Enum.TipoAnimale;
 
 import java.util.UUID;
 
@@ -25,4 +25,11 @@ public class Card {
     private String nome;
     @JsonProperty("descrizione")
     private String descrizione;
+    @JsonProperty("tipoAnimale")
+    @Enumerated(EnumType.STRING)
+    private TipoAnimale tipoAnimale;
+    @JsonProperty("taglia")
+    @Enumerated(EnumType.STRING)
+    private Taglia taglia;
+
 }
