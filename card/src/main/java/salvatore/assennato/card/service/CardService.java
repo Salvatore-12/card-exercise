@@ -91,7 +91,7 @@ public class CardService {
   public List<Card> getAllCardsGatto(){
       return cardDAO.findByTipoAnimale(TipoAnimale.Gatto);
   }
-  public List<Card> gettCardsGattiETagliaPiccola(){
+  public List<Card> getCardsGattiETagliaPiccola(){
       return cardDAO.findByTipoAnimaleAndTaglia(TipoAnimale.Gatto,Taglia.Piccola);
   }
 }
