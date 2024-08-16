@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Service;
+import salvatore.assennato.card.Enum.Taglia;
+import salvatore.assennato.card.Enum.TipoAnimale;
 import salvatore.assennato.card.entities.Card;
 import salvatore.assennato.card.exceptions.NotFoundException;
 import salvatore.assennato.card.payloads.CardDTO;
@@ -70,4 +72,26 @@ public class CardService {
    public void delete(UUID id){
         cardDAO.deleteById(id);
    }
+
+   //1)Query cards per il cane
+  public List<Card> getAllCardsCane(){
+        return cardDAO.findByTipoAnimale(TipoAnimale.Cane);
+  }
+  public List<Card> getCardsCaniETagliaPiccola(){
+        return cardDAO.findByTipoAnimaleAndTaglia(TipoAnimale.Cane,Taglia.Piccola);
+  }
+  public List<Card> getCardsCaniETagliaMedia(){
+       return cardDAO.findByTipoAnimaleAndTaglia(TipoAnimale.Cane,Taglia.Media);
+  }
+  public List<Card> getCardsCaniETagliaGrande(){
+      return cardDAO.findByTipoAnimaleAndTaglia(TipoAnimale.Cane,Taglia.Grande);
+  }
+
+  //Query cards per il gatto
+  public List<Card> getAllCardsGatto(){
+      return cardDAO.findByTipoAnimale(TipoAnimale.Gatto);
+  }
+  public List<Card> gettCardsGattiETagliaPiccola(){
+      return cardDAO.findByTipoAnimaleAndTaglia(TipoAnimale.Gatto,Taglia.Piccola);
+  }
 }

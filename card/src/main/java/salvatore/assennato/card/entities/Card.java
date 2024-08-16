@@ -32,4 +32,11 @@ public class Card {
     @Enumerated(EnumType.STRING)
     private Taglia taglia;
 
+    public Card(String immagine, String nome, String descrizione, TipoAnimale tipoAnimale, Taglia taglia) {
+        this.immagine = immagine;
+        this.nome = nome;
+        this.descrizione = descrizione;
+        this.tipoAnimale = tipoAnimale;
+        this.taglia = taglia;
+    }
 }
