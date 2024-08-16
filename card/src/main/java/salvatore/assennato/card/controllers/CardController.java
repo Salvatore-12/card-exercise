@@ -15,12 +15,19 @@ public class CardController {
     @Autowired
     private CardService cardService;
 
+    public CardController() {
+        System.out.println("CardController istanziato");
+    }
+
+
     //1)VARI ENDPOINT PER I PRODOTTI PER IL Cane
     @GetMapping("/cards-cane")
     public List<Card> getAllCardsCane(){
-        return cardService.getAllCardsCane();
+        List<Card> cards = cardService.getAllCardsCane();
+        System.out.println("Numero di carte trovate per i cani: " + cards.size());
+        return cards;
     }
-    @GetMapping("/cani-tagliaPiccola")
+    @GetMapping("/cane-tagliaPiccola")
     public List<Card> getCardsCaniEtagliaPiccola(){
         return cardService.getCardsCaniETagliaPiccola();
     }
@@ -41,5 +48,15 @@ public class CardController {
     @GetMapping("/gatto-tagliaPiccola")
     public List<Card> getCardsGattiETagliaPiccola(){
         return cardService.getCardsGattiETagliaPiccola();
+    }
+
+    @GetMapping("/gatto-tagliaMedia")
+    public List<Card> getCardsGattiETagliaMedia(){
+        return cardService.getCardsGattiETagliaMedia();
+    }
+
+    @GetMapping("/gatto-tagliaGrande")
+    public List<Card> getCardsGattiETagliaGrande(){
+        return cardService.getCardsGattiETagliaGrande();
     }
 }
