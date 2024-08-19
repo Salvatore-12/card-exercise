@@ -22,28 +22,34 @@ import java.util.Arrays;
 @EnableMethodSecurity
 public class SecutiryConfig {
     @Bean
-    SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception
-    {
+    SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.formLogin(AbstractHttpConfigurer::disable);
-        httpSecurity.sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+        httpSecurity.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
         httpSecurity.csrf(AbstractHttpConfigurer::disable);
         httpSecurity.cors(Customizer.withDefaults());
         httpSecurity.authorizeHttpRequests(request -> request.requestMatchers("/**").permitAll());
         return httpSecurity.build();
     }
+
     @Bean
-    PasswordEncoder getPWEncoder()
-    {
+    PasswordEncoder getPWEncoder() {
         return new BCryptPasswordEncoder(11);
     }
+
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "https://www.mywonderfulfe.com"));
-        configuration.setAllowedMethods(Arrays.asList("*"));
-        configuration.setAllowedHeaders(Arrays.asList("*"));
+        // Aggiungi le origini consentite (Angular in locale e un dominio di produzione come esempio)
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200", "https://www.mywonderfulfe.com"));
+        // Imposta i metodi consentiti (puoi specificare o usare "*")
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        // Consenti tutti gli header (o specifica header specifici se necessario)
+        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "X-Requested-With"));
+        // (Opzionale) Esponi header specifici al frontend, se necessario
+        configuration.setExposedHeaders(Arrays.asList("Authorization"));
+        // Configura CORS per tutti gli endpoint
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration); // Registro la configurazione CORS fatta su tutti gli endpoint della mia applicazione
+        source.registerCorsConfiguration("/**", configuration);
         return source;
     }
 }
