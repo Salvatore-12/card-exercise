@@ -100,4 +100,20 @@ public class CardService {
     public List<Card> getCardsGattiETagliaGrande(){
         return cardDAO.findByTipoAnimaleAndTaglia(TipoAnimale.Gatto,Taglia.Grande);
     }
+
+    //Query cards per l'uccello
+
+    public  List<Card> getAllCardsUccello(){
+        return cardDAO.findByTipoAnimale(TipoAnimale.Uccello);
+    }
+
+    public List<Card>getCardsUccelliETagliaPiccola(){
+        return cardDAO.findByTipoAnimaleAndTaglia(TipoAnimale.Uccello,Taglia.Piccola);
+    }
+    public List<Card>getCardsUccelliETagliaMedia(){
+        return cardDAO.findByTipoAnimaleAndTaglia(TipoAnimale.Uccello,Taglia.Media);
+    }
+    public List<Card>getCardsUccelliETagliaGrande(){
+        return cardDAO.findByTipoAnimaleAndTaglia(TipoAnimale.Uccello,Taglia.Grande);
+    }
 }
