@@ -22,7 +22,7 @@ public class CardController {
     }
 
 
-    //1)VARI ENDPOINT PER I PRODOTTI PER IL Cane
+    //1)VARI ENDPOINT PER LE VARIE CARD PER IL CANE
     @GetMapping("/cards-cane")
     public List<Card> getAllCardsCane(){
         List<Card> cards = cardService.getAllCardsCane();
@@ -42,7 +42,7 @@ public class CardController {
         return cardService.getCardsCaniETagliaGrande();
     }
 
-    //2)//1)VARI ENDPOINT PER I PRODOTTI PER IL GATTO
+    //2)VARI ENDPOINT PER LE VARIE CARD PER IL GATTO
     @GetMapping("/cards-gatto")
     public List<Card> getAllCardsGatto(){
         return cardService.getAllCardsGatto();
@@ -60,5 +60,25 @@ public class CardController {
     @GetMapping("/gatto-tagliaGrande")
     public List<Card> getCardsGattiETagliaGrande(){
         return cardService.getCardsGattiETagliaGrande();
+    }
+
+    //2)VARI ENDPOINT PER LE VARIE CARD PER L'UCCELLO
+    @GetMapping("/cards-uccello")
+    public List<Card> getAllCardsUccello(){
+        return  cardService.getAllCardsUccello();
+    }
+    @GetMapping("/uccello-tagliaPiccola")
+    public List<Card> getCardsUccelliETagliaPiccola(){
+        return cardService.getCardsUccelliETagliaPiccola();
+    }
+
+    @GetMapping("/uccello-tagliaMedia")
+    public List<Card> getCardsUccelliETagliaMedia(){
+        return cardService.getCardsUccelliETagliaMedia();
+    }
+
+    @GetMapping("/uccello-tagliaGrande")
+    public List<Card> getCardsUccelliETagliaGrande(){
+        return cardService.getCardsUccelliETagliaGrande();
     }
 }
