@@ -56,10 +56,10 @@ public class CardRunner implements CommandLineRunner {
 
         // 2)Creazione Cards Gatti
            //Sezione Taglia Piccola
-           Card cardGattoPiccolo1 = new Card("https://media.istockphoto.com/id/174798188/it/foto/cornish-rex-gatto-in-movimento.jpg?s=612x612&w=is&k=20&c=ZXDBwwixk_r-4HgzLV4WORBFQMntm3lZ7JoZOrJa2u0=","cornish-rex","bellissimo gattino",TipoAnimale.Gatto,Taglia.Piccola);
+           Card cardGattoPiccolo1 = new Card("https://images.unsplash.com/photo-1693778132696-19a993323880?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y29ybmlzaCUyMHJleHxlbnwwfHwwfHx8MA%3D%3D","cornish-rex","bellissimo gattino",TipoAnimale.Gatto,Taglia.Piccola);
            cardDAO.save(cardGattoPiccolo1);
            //Sezione Taglia Media
-           Card cardGatto1 = new Card("https://media.istockphoto.com/id/1814865780/it/foto/un-adorabile-gatto-american-curl-sta-fissando-la-telecamera.jpg?s=1024x1024&w=is&k=20&c=uiTF9uZc6pmbMviPHALb6ZtwGZPE4zEnjlqZKLMRjZM=","American Curl","bellissimo esemplare di American Curl,coccoloso con tutti",TipoAnimale.Gatto,Taglia.Media);
+           Card cardGatto1 = new Card("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQM7A4PEIA1VKTHryXPShQeujrayN6SddBtQ&s","American Curl","bellissimo esemplare di American Curl,coccoloso con tutti",TipoAnimale.Gatto,Taglia.Media);
            cardDAO.save(cardGatto1);
            //Sezione Taglia Grande
            Card cardGattoGrande1 = new Card("https://images.unsplash.com/photo-1510932309205-50f8913fdb7c?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8TWFpbmUlMjBDb29ufGVufDB8fDB8fHww","Maine Coon","bellissimo gatto pelosetto",TipoAnimale.Gatto,Taglia.Grande);
